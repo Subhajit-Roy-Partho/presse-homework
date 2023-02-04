@@ -19,8 +19,8 @@ def simulate_birth_death_process(birth_rate, death_rate, initial_population, sim
     return waiting_times, population
 
 x,y=simulate_birth_death_process(0.45,0.2,1,100);
-print(x.shape)
-print(y.shape)
+print(x)
+print(y)
 plt.plot(x,y[:-1])
 plt.savefig("plot.png",dpi=600)
 plt.show();

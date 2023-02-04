@@ -1,8 +1,8 @@
-import random
-import numpy as np
-import matplotlib.pyplot as plt;
-import time;
-from tqdm import tqdm;
+import random #random number generator
+import numpy as np #numpy library for mathematical operation 
+import matplotlib.pyplot as plt; #Plotting library 
+import time; #current system time
+from tqdm import tqdm; #progress bar
 
 # time = int(time.time())
 # np.random.seed(time);
@@ -17,15 +17,14 @@ from tqdm import tqdm;
 #     else:
 #         return -1
 
-def simulate_birth_death_process(birth_rate, death_rate, s0, size):
-	if (s0<0):
-		print("Initial population must be greater than 0");
-		quit();
-	if (birth_rate+death_rate !=1):
-		print("Birth Rate + Death Rate should be 1");
-		quit();
-	s0 = int(s0);
-	draw = 0;
+def simulate_birth_death_process(birth_rate, death_rate, s0, size): # Function for birth-death process
+	if (s0<0): # making sure initial population is greater than 1
+		print("Initial population must be greater than 0"); #warning message
+		quit(); #terminate the program
+	if (birth_rate+death_rate !=1): #p+q should be 1
+		print("Birth Rate + Death Rate should be 1");# warning message
+		quit(); #terminate the program
+	s0 = int(s0); #confirm initial population is integer
 	time = np.zeros(size,dtype="float");
 	s = np.zeros(size,dtype="float");
 	s[0] = s0;

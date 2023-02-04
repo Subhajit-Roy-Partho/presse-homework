@@ -25,11 +25,9 @@ def simulate_birth_death_process(birth_rate, death_rate, s0, size): # Function f
 		print("Birth Rate + Death Rate should be 1");# warning message
 		quit(); #terminate the program
 	s0 = int(s0); #confirm initial population is integer
-	time = np.zeros(size,dtype="float");
+	time = np.zeros(size,dtype="float"); #initialing time array to store the cdf of waiting time from one state to another.
 	s = np.zeros(size,dtype="float");
 	s[0] = s0;
-
-	# events = np.random.choice([1, -1], size=size, p=[birth_rate / (birth_rate + death_rate), death_rate / (birth_rate + death_rate)])
 
 	for i in tqdm(range(1,size)):
 		events = np.random.choice([1, -1], size=size, p=[birth_rate / (birth_rate + s[i-1]*death_rate), s[i-1]*death_rate / (birth_rate + s[i-1]*death_rate)])

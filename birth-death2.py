@@ -42,7 +42,7 @@ def simulate_birth_death_process(birth_rate, death_rate, s0, size): # Function f
 	return time,s; # Return the time and population array.
 
 
-x,y = simulate_birth_death_process(0.995,0.005,0,10000); #Call the function.
+x,y = simulate_birth_death_process(0.995,0.005,1,10000); #Call the function.
 plot = (0.995/0.005)+(1-(0.995/0.005))*np.exp(-0.005*x); # Plot the mass action law, please look into the mathematica notebook for the final formula.
 # print(x,y); # Prinint x and y for debugging.
 plt.plot(x,y); # Plot the time and the population array.

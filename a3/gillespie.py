@@ -51,7 +51,7 @@ def reactions(populations,choice):
 
 for i in tqdm(range(1,steps)): # Loop i will range from 1 to steps-1
     propensities = prop(populations,propensities); #Calculate propensities for all the reactions
-    sumProp = np.sum(propensities); # sum of all the 
+    sumProp = np.sum(propensities); # sum of all the propensities
     maxTime = 1.0/sumProp; # Maximum time.
     tau = np.random.exponential(maxTime); # Holding time sampled from an exponential distribution.
     choice = np.random.choice(7,1,p=propensities/sumProp); # Making choice for the reaction to be evaluated

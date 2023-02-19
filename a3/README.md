@@ -22,6 +22,12 @@ Gillespie’s algorithm is used to solve these problem.
 
 <center><b>Fig 2: Histogram of A1* Population for 900 step simulation </b></center>
 
-![All Population Steps 30](All-Population-30.png)
+![All Population Steps 900](All-Population-900.png)
 
-<center><b>Fig 3:Population of all species for 30 step simulation </b></center>
+<center><b>Fig 3:Population of all species for 900 step simulation </b></center>
+
+</br>
+
+#### **Differnetial Rate Equations:**
+
+dA/dt

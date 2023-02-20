@@ -1,10 +1,11 @@
-import numpy as np
-from tqdm import tqdm
-import matplotlib.pyplot as plt
-from time import time;
+#Importing required libraries
+import numpy as np #Used for mathematical operations 
+from tqdm import tqdm #Used for progress bar in loops
+import matplotlib.pyplot as plt #Plotting software
+from time import time; #To obtain system time.
 # Initial states.
 
-np.random.seed(int(time()));
+np.random.seed(int(time())); #Passing time as the random seed to the numpy
 # c is the initial populations.
 populations = np.array((1000,1000,0,0,0),dtype=int); # Ip = [A1,A2,A1*,E,S]
 # rate is the initial rates
@@ -13,7 +14,7 @@ rates = np.array((1,1,100,1,100,1),dtype=float); # rates = [k1,k2,k3,k4,k5,kd]
 # populations = np.zeros(5,dtype=int) # keeps track of nth population.
 propensities = np.zeros(7,dtype=float) #keeps track of nth propensities
 
-steps = 1000;
+steps = 1000; #Number of steps for the simulation
 
 time = np.zeros(steps, dtype=float); # Store the time steps
 storeP = np.zeros((steps,5),dtype=int); # Store all the populations at all time steps in 2D array.
@@ -59,7 +60,9 @@ for i in tqdm(range(1,steps)): # Loop i will range from 1 to steps-1
     time[i] = time[i-1]+tau; #Store the time.
     storeP[i]=populations#Store all the populations at step i
 
+#plotting
 storeP = storeP.transpose();
+#Plotting A1* population as a function of time.
 plt.plot(time,storeP[2]);
 plt.title("Gillespie Simulation")
 plt.xlabel("Time");
@@ -67,6 +70,7 @@ plt.ylabel("Population");
 plt.legend("A1*");
 plt.savefig("A1*Population-"+str(steps)+"i1000.png",dpi=100)
 plt.clf();
+#Plotting the histogram of the A1*Population
 plt.hist(storeP[2],bins=50);
 plt.xlabel("Population");
 plt.ylabel("Number");
@@ -74,6 +78,7 @@ plt.title("A1* Histogram")
 plt.savefig("A1*Histogram-"+str(steps)+"i1000.png",dpi=100)
 plt.clf();
 
+#Plotting all the populations
 for i in range(5):
     plt.plot(time,storeP[i]);
 plt.title("Gillespie Simulation");

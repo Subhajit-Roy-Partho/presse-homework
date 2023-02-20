@@ -2,7 +2,7 @@
 
 *Python is used for this assignment.*
 
-### Q1. Stochastic binary decisions
+## Q1. Stochastic binary decisions
 
 Gillespie’s algorithm is used to solve these problem.
 
@@ -55,9 +55,31 @@ Also we expect to observer a case where there is no growth of A1* if A1 decrease
 
 ![A1* Histogram for large values of A1](A1*Histogram-1000i1000.png)
 
-<center><b>Fig 1: Population of A1* for large population of A1 and A2 </b></center>
+<center><b>Fig 7: Population of A1* for large population of A1 and A2 </b></center>
 
-![All Population for large values of A1*](A1*Histogram-1000i1000.png)
+![All Population for large values of A1*](All-Population-1000i1000.png)
 
-<center><b>Fig 1: Population of A1* for 30 </b></center>
-With a very high value of A1 in 
+<center><b>Fig 8: Population of A1* for 30 </b></center>
+
+
+With a very high value of A1 we don't have any instability in A1 and the value of A1 decreases smoothly following almost an exponential distribution. We expect E to have almost same behavious like previous case. Thus we expect the growth rate of A1* to be almost proportional to population of A1. Thus A1* is expected to grow for sometime and then achieve a equilibriu with near zero growth because of low population of A1. We observe similar dynamics in Figure 8.
+
+The instability is clearly shown in the histogram of Fig 4 and Fig 7, where we expect a suddent in crease of A1* for the former case and a stable solution for the later case as depicted by Fig 7, except for the first bin we observe an equal distribution of the population.
+
+<b> In Figure 3 and 1 the legend is A1* instesd of A1</b>
+
+
+## Q2. The genetic toggle switch and stochastic bistability
+
+The constrains:
+
+gA+gA* = 1
+
+gB+gB* = 1
+
+should be followed automatically if we have correct initial value and made no mistakes defining the reactions.
+
+
+![Genetic switch](Fig 9: Genetic Switch)
+
+<center><b>Fig 8: Genetic switch with  </b></center>

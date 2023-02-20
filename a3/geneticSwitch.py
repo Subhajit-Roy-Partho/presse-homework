@@ -1,11 +1,10 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from tqdm import tqdm
-from time import time;
+import numpy as np # Importing Numpy which does most of the mathematical operations
+import matplotlib.pyplot as plt #Plotting library
+from tqdm import tqdm #To obtain a progress bar for the loop.
+from time import time; #To obtain the current system time.
 
-np.random.seed(int(time()));
+np.random.seed(int(time())); #current system time is feeded as the seed for numpy calculation.
 steps = 10000 #Number of steps to be iteratted.
-
 
 populations = np.array((0,0,1,1,0,0),dtype=int); # populations = [nA,nB,gA,gB,gA*,gB*]
 rates = np.array((1,10,20,19),dtype=float) #rates = [kd,kp,kf,kr]
@@ -57,12 +56,12 @@ def reaction(populations,choice):
         populations[5] -=1 #gB* is decreasing
     return populations
 
-if __name__ == "__main__":
-    for i in tqdm(range(1,steps)):
+if __name__ == "__main__": #Just to show that this is the main function of the code
+    for i in tqdm(range(1,steps)): # Loop from 1 to step-1.
         propensities = prop(populations,propensities); #Calculate propensities for all the reactions
-        if populations[2]+populations[4] >1:
+        if populations[2]+populations[4] >1: #To check that constrain gA + gA* =1 is followed.
             print("something wrong ")
-        if populations[3]+populations[5]>1:
+        if populations[3]+populations[5]>1: #To check that constrain gB + gB* =1 is followed.
             print("something wrong")
         if populations[4] ==1: #can't have a gB* when we already have a gA*
             propensities[6]=0 #setting production of gB* to 0
@@ -76,13 +75,13 @@ if __name__ == "__main__":
         time[i] = time[i-1]+tau; #Store the time.
         storeP[i]=populations#Store all the populations at step i
 
-    storeP = storeP.transpose();
-    plt.figure(figsize=(20,10))
-    for i in range(5):
-        plt.plot(time,storeP[i]);
-    plt.title("Genetic Switch");
-    plt.xlabel("Time");
-    plt.ylabel("Population");
-    plt.legend(["A","B","gA","gB","gA*","gB*"]);
-    plt.savefig("geneticSwitch2.png",dpi=100);
-    plt.show()
+    storeP = storeP.transpose(); #Transpoing the matrix to easily plot the graph
+    plt.figure(figsize=(20,10)) #Setting large figure size
+    for i in range(5): #Loop through all the populations
+        plt.plot(time,storeP[i]); #Plot them.
+    plt.title("Genetic Switch"); #Title of the plot 
+    plt.xlabel("Time"); #x-lable of the plot
+    plt.ylabel("Population"); #y-label of the plot
+    plt.legend(["A","B","gA","gB","gA*","gB*"]); #Legend of the plot
+    plt.savefig("geneticSwitch2.png",dpi=100); #Saving the figures
+    plt.show() #Display the plot in Qt window.

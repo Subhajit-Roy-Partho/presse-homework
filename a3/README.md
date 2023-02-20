@@ -79,7 +79,29 @@ gB+gB* = 1
 
 should be followed automatically if we have correct initial value and made no mistakes defining the reactions.
 
+The last constrain of exclusive switch was implemented by reducing the propensity of formation of gB* to 0 if gA* is present and vice-versa for gA*.
 
-![Genetic switch](Fig 9: Genetic Switch)
 
-<center><b>Fig 8: Genetic switch with  </b></center>
+![Genetic switch](geneticSwitch2.png)
+
+<center><b>Fig 9: Genetic switch for kd=1,kp=10,kf=20,kr=15</b></center>
+
+As can be seen in the Fig 9, a constant switch in concentration of species A and B can be observed. 
+
+
+![Genetic Switch Large Populations](geneticSwitch-large.png)
+
+<center><b>Fig 10: Genetic Switch with initial population of A and B = 100 </b></center>
+
+![Genetic Switch Large Populations 1000](geneticSwitch-large2.png)
+
+<center><b>Fig 11: Genetic Switch with initial population of A and B = 1000 </b></center>
+
+
+With a very large population of A and B we expect it to decrease very fast at the beginning and then exhibits switching between two solutions as shown in Fig 10. But if the initial condition is as high as 1000 then in terms of initial condition the hopping would be almost negligible as can be seen from Fig 11.
+
+If one re-simulate with the exclusive switch off the fixed points are thrown off and we observe some random pattern.
+
+![Genetic Switch with Exclusive Switch turned off](geneticSwitch-partb.png)
+
+<center><b>Fig 10: Genetic Switch with initial population of A and B = 100 </b></center>
